@@ -2,6 +2,9 @@
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Kenta-morimori&layout=compact&theme=github_dark)](https://github.com/anuraghazra/github-readme-stats)
 
+[![trophy](https://github-profile-trophy.vercel.app/?username=Kenta-morimori&theme=onedark)](https://github-profile-trophy.vercel.app/?username=ryo-ma&theme=tokyonight)
+
+
 
 <!--
 **Kenta-morimori/Kenta-morimori** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
