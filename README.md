@@ -1,10 +1,8 @@
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Kenta-morimori&show_icons=true&theme=github_dark)
+![GitHub Stats](https://github-readme-stats-i6mvxrbaq-kenta-morimoris-projects.vercel.app/api?username=Kenta-morimori&show_icons=true&theme=github_dark)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Kenta-morimori&layout=compact&theme=github_dark)](https://github.com/anuraghazra/github-readme-stats)
+[![Top Langs](https://github-readme-stats-i6mvxrbaq-kenta-morimoris-projects.vercel.app/api/top-langs/?username=Kenta-morimori&layout=compact&theme=github_dark)](https://github.com/anuraghazra/github-readme-stats)
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=Kenta-morimori&rank=-C,-B&theme=onedark)](https://github-profile-trophy.vercel.app/?username=ryo-ma&theme=tokyonight)
-
-
+[![trophy](https://github-readme-stats-i6mvxrbaq-kenta-morimoris-projects.vercel.app/?username=Kenta-morimori&rank=-C,-B&theme=onedark)](https://github-profile-trophy.vercel.app/?username=ryo-ma&theme=tokyonight)
 
 <!--
 **Kenta-morimori/Kenta-morimori** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
