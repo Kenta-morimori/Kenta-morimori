@@ -12,6 +12,7 @@ from PIL import Image, ImageEnhance
 
 
 ACCOUNT = "Kenta-morimori"
+PROFILE_REPOSITORY = f"{ACCOUNT}/{ACCOUNT}"
 ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 PORTRAIT = ROOT / "assets" / "kenta-ascii-portrait.svg"
@@ -82,6 +83,23 @@ def public_activity(event: dict[str, object]) -> str:
     return f"{event_type} · {timestamp} UTC" if timestamp else event_type
 
 
+def first_non_profile_repository(repositories: list[object]) -> dict[str, object]:
+    for repository in repositories:
+        if isinstance(repository, dict) and repository.get("full_name") != PROFILE_REPOSITORY:
+            return repository
+    return {}
+
+
+def first_non_profile_event(events: list[object]) -> dict[str, object]:
+    for event in events:
+        if not isinstance(event, dict):
+            continue
+        repo = event.get("repo")
+        if isinstance(repo, dict) and repo.get("name") != PROFILE_REPOSITORY:
+            return event
+    return {}
+
+
 def write_readme(profile: dict[str, object], repository: dict[str, object], event: dict[str, object]) -> None:
     updated = str(repository.get("updated_at", ""))[:10]
     README.write_text(
@@ -127,11 +145,11 @@ recent activity   <em>{public_activity(event)}</em>
 
 def main() -> None:
     profile = api(f"/users/{ACCOUNT}")
-    repositories = api(f"/users/{ACCOUNT}/repos?sort=updated&per_page=1")
-    events = api(f"/users/{ACCOUNT}/events/public?per_page=1")
+    repositories = api(f"/users/{ACCOUNT}/repos?sort=updated&per_page=100")
+    events = api(f"/users/{ACCOUNT}/events/public?per_page=100")
     assert isinstance(profile, dict) and isinstance(repositories, list) and isinstance(events, list)
-    repository = repositories[0] if repositories else {}
-    event = events[0] if events else {}
+    repository = first_non_profile_repository(repositories)
+    event = first_non_profile_event(events)
 
     avatar = ROOT / ".avatar.png"
     download(str(profile["avatar_url"]), avatar)
