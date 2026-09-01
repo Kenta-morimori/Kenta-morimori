@@ -16,6 +16,7 @@ PROFILE_REPOSITORY = f"{ACCOUNT}/{ACCOUNT}"
 ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 PORTRAIT = ROOT / "assets" / "kenta-ascii-portrait.svg"
+TERMINAL_PANEL = ROOT / "assets" / "profile-terminal.svg"
 PORTRAIT.parent.mkdir(exist_ok=True)
 
 PORTRAIT_BOX = (115, 0, 460, 410)
@@ -83,6 +84,53 @@ def public_activity(event: dict[str, object]) -> str:
     return f"{event_type} · {timestamp} UTC" if timestamp else event_type
 
 
+def terminal_text(x: int, y: int, value: str, color: str, *, bold: bool = False, anchor: str = "start") -> str:
+    weight = ' font-weight="700"' if bold else ""
+    return f'<text x="{x}" y="{y}" fill="{color}" text-anchor="{anchor}"{weight}>{escape(value)}</text>'
+
+
+def terminal_entry(y: int, label: str, value: str) -> str:
+    return "".join(
+        (
+            terminal_text(28, y, label, "#e5a26b", bold=True),
+            terminal_text(220, y, "....................", "#4b5361"),
+            terminal_text(670, y, value, "#9ecbff", anchor="end"),
+        )
+    )
+
+
+def write_terminal(profile: dict[str, object], repository: dict[str, object], event: dict[str, object]) -> None:
+    updated = str(repository.get("updated_at", ""))[:10] + " UTC"
+    lines = [
+        terminal_text(28, 42, "Kenta-morimori@kyutech", "#9ecbff", bold=True),
+        terminal_text(300, 42, "----------------------------------------", "#4b5361"),
+        terminal_entry(84, "Institution:", "Kyushu Institute of Technology"),
+        terminal_entry(116, "Research:", "ML, Biophysics"),
+        terminal_entry(148, "Focus:", "Image & Time-Series Analysis"),
+        terminal_text(28, 202, "- Contact ", "#c9d1d9"),
+        terminal_text(145, 202, "----------------------------------------------------------", "#4b5361"),
+        terminal_entry(236, "Email.University:", "takmori,kenta331@mail.kyutech.jp"),
+        terminal_entry(268, "Email.Personal:", "takemori.kenta.official@gmail.com"),
+        terminal_entry(300, "LinkedIn:", "kenta-takemori"),
+        terminal_entry(332, "GitHub:", "Kenta-morimori"),
+        terminal_text(28, 388, "- GitHub Status ", "#c9d1d9"),
+        terminal_text(220, 388, "----------------------------------------------------", "#4b5361"),
+        terminal_entry(422, "Public.Repos:", str(profile.get("public_repos", 0))),
+        terminal_entry(454, "Latest.Project:", str(repository.get("name", "—"))),
+        terminal_entry(486, "Last.Updated:", updated),
+        terminal_entry(518, "Recent.Activity:", public_activity(event)),
+    ]
+    TERMINAL_PANEL.write_text(
+        f'''<svg xmlns="http://www.w3.org/2000/svg" width="700" height="540" viewBox="0 0 700 540" role="img" aria-label="Terminal-style profile information for Kenta Takemori">
+  <rect width="700" height="540" rx="12" fill="#0d1117"/>
+  <rect x="1" y="1" width="698" height="538" rx="11" fill="none" stroke="#30363d"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">{''.join(lines)}</g>
+</svg>
+''',
+        encoding="utf-8",
+    )
+
+
 def first_non_profile_repository(repositories: list[object]) -> dict[str, object]:
     for repository in repositories:
         if isinstance(repository, dict) and repository.get("full_name") != PROFILE_REPOSITORY:
@@ -100,37 +148,15 @@ def first_non_profile_event(events: list[object]) -> dict[str, object]:
     return {}
 
 
-def write_readme(profile: dict[str, object], repository: dict[str, object], event: dict[str, object]) -> None:
-    updated = str(repository.get("updated_at", ""))[:10]
+def write_readme() -> None:
     README.write_text(
         f'''<table>
   <tr>
     <td valign="middle" width="40%" align="center">
       <img src="./assets/kenta-ascii-portrait.svg" width="355" alt="Color character portrait generated from Kenta Takemori's GitHub avatar" />
-      <br />
-      <sub>Color character portrait · rendered from the current GitHub avatar</sub>
     </td>
     <td valign="middle" width="60%">
-      <h3>Takemori Kenta</h3>
-      <p>
-        Ph.D. Student · Kyushu Institute of Technology<br>
-        Machine Learning · Biophysics<br>
-        Image Analysis · Time-Series Analysis
-      </p>
-      <h3>Contact</h3>
-      <pre>
-Email (University)  <a href="mailto:takmori,kenta331@mail.kyutech.jp">takmori,kenta331@mail.kyutech.jp</a>
-Email (Personal)    <a href="mailto:takemori.kenta.official@gmail.com">takemori.kenta.official@gmail.com</a>
-LinkedIn            <a href="https://jp.linkedin.com/in/kenta-takemori">kenta-takemori</a>
-GitHub              <a href="https://github.com/Kenta-morimori">Kenta-morimori</a>
-      </pre>
-      <h3>GitHub Status</h3>
-      <pre>
-public repos      {profile.get("public_repos", 0)}
-latest project    {repository.get("name", "—")}
-last updated      {updated} UTC
-recent activity   <em>{public_activity(event)}</em>
-      </pre>
+      <img src="./assets/profile-terminal.svg" width="620" alt="Terminal-style profile information" />
     </td>
   </tr>
 </table>
@@ -155,7 +181,8 @@ def main() -> None:
     download(str(profile["avatar_url"]), avatar)
     write_portrait(avatar)
     avatar.unlink()
-    write_readme(profile, repository, event)
+    write_terminal(profile, repository, event)
+    write_readme()
 
 
 if __name__ == "__main__":
