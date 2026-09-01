@@ -2,30 +2,9 @@
   <tr>
     <td valign="middle" width="40%" align="center">
       <img src="./assets/kenta-ascii-portrait.svg" width="355" alt="Color character portrait generated from Kenta Takemori's GitHub avatar" />
-      <br />
-      <sub>Color character portrait · rendered from the current GitHub avatar</sub>
     </td>
     <td valign="middle" width="60%">
-      <h3>Takemori Kenta</h3>
-      <p>
-        Ph.D. Student · Kyushu Institute of Technology<br>
-        Machine Learning · Biophysics<br>
-        Image Analysis · Time-Series Analysis
-      </p>
-      <h3>Contact</h3>
-      <pre>
-Email (University)  <a href="mailto:takmori,kenta331@mail.kyutech.jp">takmori,kenta331@mail.kyutech.jp</a>
-Email (Personal)    <a href="mailto:takemori.kenta.official@gmail.com">takemori.kenta.official@gmail.com</a>
-LinkedIn            <a href="https://jp.linkedin.com/in/kenta-takemori">kenta-takemori</a>
-GitHub              <a href="https://github.com/Kenta-morimori">Kenta-morimori</a>
-      </pre>
-      <h3>GitHub Status</h3>
-      <pre>
-public repos      9
-latest project    prj-flagella-estimation
-last updated      2026-08-30 UTC
-recent activity   <em>PullRequestReview · 2026-08-31 UTC</em>
-      </pre>
+      <img src="./assets/profile-terminal.svg" width="620" alt="Terminal-style profile information" />
     </td>
   </tr>
 </table>
