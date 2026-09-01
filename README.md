@@ -22,9 +22,9 @@ GitHub              <a href="https://github.com/Kenta-morimori">Kenta-morimori</
       <h3>GitHub Status</h3>
       <pre>
 public repos      9
-latest project    Kenta-morimori
-last updated      2026-09-01 UTC
-recent activity   <em>Push · 2026-09-01 UTC</em>
+latest project    prj-flagella-estimation
+last updated      2026-08-30 UTC
+recent activity   <em>PullRequestReview · 2026-08-31 UTC</em>
       </pre>
     </td>
   </tr>
