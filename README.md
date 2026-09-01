@@ -1,21 +1,34 @@
-![GitHub Stats](https://github-readme-stats-i6mvxrbaq-kenta-morimoris-projects.vercel.app/api?username=Kenta-morimori&show_icons=true&theme=github_dark)
+<div align="center">
 
-[![Top Langs](https://github-readme-stats-i6mvxrbaq-kenta-morimoris-projects.vercel.app/api/top-langs/?username=Kenta-morimori&layout=compact&theme=github_dark)](https://github.com/anuraghazra/github-readme-stats)
+```text
+ _  __          _          _____     _                         _
+| |/ /___ _ __ | |_ __ _  |_   _|_ _| | _____ _ __ ___   ___ | |_ ___
+| ' // _ \ '_ \| __/ _` |   | |/ _` | |/ / _ \ '_ ` _ \ / _ \| __/ _ \
+| . \  __/ | | | || (_| |   | | (_| |   <  __/ | | | | | (_) | || (_) |
+|_|\_\___|_| |_|\__\__,_|   |_|\__,_|_|\_\___|_| |_| |_|\___/ \__\___/
+```
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=Kenta-morimori&rank=-C,-B&theme=onedark)](https://github.com/ryo-ma/github-profile-trophy)
+Machine learning · time-series analysis · image analysis  
+Kyushu Institute of Technology
 
+[![GitHub](https://img.shields.io/badge/GitHub-Kenta--morimori-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Kenta-morimori)
 
-<!--
-**Kenta-morimori/Kenta-morimori** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+</div>
 
-Here are some ideas to get you started:
+## Status
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+```text
+● building  Flagella estimation tools
+● exploring Machine learning, time-series analysis, and image analysis
+● recently  Updating prj-flagella-estimation
+```
+
+## Contact
+
+```text
+GitHub  github.com/Kenta-morimori
+```
+
+---
+
+<div align="center"><sub>Kyushu Institute of Technology · Japan</sub></div>
