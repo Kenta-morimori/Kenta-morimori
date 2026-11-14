@@ -109,7 +109,7 @@ def write_terminal(profile: dict[str, object], repository: dict[str, object], ev
         terminal_entry(148, "Focus:", "Image & Time-Series Analysis"),
         terminal_text(28, 202, "- Contact ", "#c9d1d9"),
         terminal_text(145, 202, "----------------------------------------------------------", "#4b5361"),
-        terminal_entry(236, "Email.University:", "takmori,kenta331@mail.kyutech.jp"),
+        terminal_entry(236, "Email.University:", "takemori.kenta331@mail.kyutech.jp"),
         terminal_entry(268, "Email.Personal:", "takemori.kenta.official@gmail.com"),
         terminal_entry(300, "LinkedIn:", "kenta-takemori"),
         terminal_entry(332, "GitHub:", "Kenta-morimori"),
